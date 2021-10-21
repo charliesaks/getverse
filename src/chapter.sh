@@ -44,7 +44,7 @@ for VER_NR in "${VERSES_NR_ARRAY[@]}"; do
   if [[ "${VER_NR}" == *"-"* ]]; then
     IFS='-' read -ra VER_NR_ARRAY <<<"${VER_NR}"
     START=${VER_NR_ARRAY[0]}
-    END=${VER_NR_ARRAY[-1]}
+    END=${VER_NR_ARRAY[1]}
     while [ "$START" -le "$END" ]; do
       VERSE=$(echo "$CHAPTER" | jq -r ".verses[] | select(.verse == ${START})")
       TEXT=$(echo "$VERSE" | jq -r '.text')
